@@ -1,0 +1,33 @@
+{% extends "templates/base.html" %}
+{% block content %}
+ <div class="jumbotron">
+    <h1>Please select your name</h1>
+ </div>
+
+ <div class="row">
+    <div class="col-md-3 col-md-offset-3">
+      <div class="dropdowns">
+	<button class="btn btn-default dropdown-togle" type="button"
+	id="employeeDropdown" data-toggle="dropdown"
+	aria-expanded="true">
+	  <span class="caret"></span>
+	</button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="employeeDropdown">
+      {% for item in messages %}
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1">{{item.name}}</a>
+        </li>
+      {% endfor %}
+      </ul>
+      </div>
+      {% if error %}
+        <p class="error">{{error}}</p>
+      {% endif %}
+    </div>
+ </div>
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">
+    <btn type="button" class="btn btn-primary btn-lg">Continue</div>
+  </div>
+</div>
+{% endblock %}
